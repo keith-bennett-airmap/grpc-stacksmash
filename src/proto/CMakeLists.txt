@@ -1,29 +1,26 @@
 
-find_package(Protobuf CONFIG REQUIRED)
+find_package(Protobuf REQUIRED)
+
+add_subdirectory(external)
 
 add_library(
     proto
     STATIC
 )
 
-set(PROTO_OUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/proto")
-file(MAKE_DIRECTORY "${PROTO_OUT_DIR}")
-
-file(GLOB_RECURSE
+file(GLOB
     PROTO_PROTOS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.proto"
 )
-
+file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/proto")
 protobuf_generate(
     TARGET proto
     LANGUAGE cpp
     PROTOS ${PROTO_PROTOS}
-    PROTOC_OUT_DIR "${PROTO_OUT_DIR}"
+    PROTOC_OUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/proto"
     IMPORT_DIRS
-        "${PROTO_OUT_DIR}/external"
-        "${PROTO_OUT_DIR}"
-        "${CMAKE_CURRENT_SOURCE_DIR}/external"
         "${CMAKE_CURRENT_SOURCE_DIR}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/external"
 )
 
 target_include_directories(
@@ -35,10 +32,11 @@ target_include_directories(
 target_include_directories(
     proto
     PUBLIC
-    "${CMAKE_CURRENT_BINARY_DIR}/proto"
+    "${CMAKE_CURRENT_BINDARY_DIR}"
 )
 
 target_link_libraries(
     proto
+    proto-external
     protobuf::libprotobuf
 )

@@ -22,6 +22,10 @@ RUN true\
 		dpkg \
 		gcc-11 \
 		g++-11 \
+		autoconf \
+		automake \
+		libtool \
+		unzip \
 	&& update-alternatives \
 		--install /usr/bin/gcc gcc /usr/bin/gcc-11 \
 		11 \
