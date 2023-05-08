@@ -1,0 +1,17 @@
+
+# cmake -DASAN_BUILD=on 
+option(ASAN_BUILD "When on, we will build for and link against Address Sanitizer" off)
+option(TSAN_BUILD "When on, we will build for and link against Thread Sanitizer" off)
+if (ASAN_BUILD AND TSAN_BUILD)
+    message(FATAL_ERROR "Address Sanitizer and Thread Sanitizer are both selected but only one can be used.")
+elseif (ASAN_BUILD)
+    message(STATUS "Address Sanitizer libraries selected")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
+    set(LINK_FLAGS "${LINK_FLAGS} -fsanitize=address -fno-omit-framepointer")
+elseif (TSAN_BUILD)
+    message(STATUS "Thread Sanitizer libraries selected")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=thread -fno-omit-frame-pointer")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=thread -fno-omit-frame-pointer")
+    set(LINK_FLAGS "${LINK_FLAGS} -fsanitize=thread -fno-omit-framepointer")
+endif()

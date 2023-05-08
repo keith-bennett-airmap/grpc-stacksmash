@@ -1,0 +1,3 @@
+[submodule "src/thirdparty/asio-grpc"]
+	path = src/thirdparty/asio-grpc
+	url = https://github.com/Tradias/asio-grpc
