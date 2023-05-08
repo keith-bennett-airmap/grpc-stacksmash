@@ -1,5 +1,5 @@
 
-FROM ubuntu:20.04 as ubuntu-2004-toolchain
+FROM ubuntu:20.04
 WORKDIR /usr/src/
 COPY ./ ./
 ENV DEBIAN_FRONTEND=noninteractive

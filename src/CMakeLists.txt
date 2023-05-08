@@ -29,6 +29,5 @@ include(cmake/cpack-configuration.cmake)
 
 find_package(Threads)
 
-add_subdirectory(thirdparty)
 add_subdirectory(proto)
 add_subdirectory(greeter-service)

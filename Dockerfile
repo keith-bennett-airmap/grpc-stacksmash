@@ -1,5 +1,5 @@
 
-FROM grpc-toolchain
+FROM protobuf-toolchain
 WORKDIR /usr/src/grpc-stacksmash
 COPY ./ ./
 RUN true \
