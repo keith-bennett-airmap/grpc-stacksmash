@@ -1,11 +1,11 @@
 
 FROM cmake-toolchain
 
-ENV CC_FLAGS "-fsanitize=address -fno-omit-frame-pointer"
-ENV CXX_FLAGS "-fsanitize=address -fno-omit-frame-pointer"
-ENV LDFLAGS "-fsanitize=address -fno-omit-frame-pointer"
+ENV CC_FLAGS "-fno-omit-frame-pointer"
+ENV CXX_FLAGS "-fno-omit-frame-pointer"
+ENV LDFLAGS "-fno-omit-frame-pointer"
 
-ARG PROTOBUF_VERSION=v21.12
+ARG PROTOBUF_VERSION=v22.4
 WORKDIR /usr/src/protobuf
 RUN true \
 	&& git clone \
