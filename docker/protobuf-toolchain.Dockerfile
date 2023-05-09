@@ -5,7 +5,7 @@ ENV CC_FLAGS "-fsanitize=address -fno-omit-frame-pointer"
 ENV CXX_FLAGS "-fsanitize=address -fno-omit-frame-pointer"
 ENV LDFLAGS "-fsanitize=address -fno-omit-frame-pointer"
 
-ARG PROTOBUF_VERSION=v3.6.1.3
+ARG PROTOBUF_VERSION=v21.12
 WORKDIR /usr/src/protobuf
 RUN true \
 	&& git clone \

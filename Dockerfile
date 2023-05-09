@@ -3,10 +3,6 @@ FROM protobuf-toolchain
 WORKDIR /usr/src/grpc-stacksmash
 COPY ./ ./
 RUN true \
-	&& if [ -z "$(ls -A ./src/thirdparty/asio-grpc)" ]; then \
-		# && git clone "http://github.com/Tradias/asio-grpc" /usr/src/src/thirdparty/asio-grpc \
-		git submodule update --init --recursive \
-	;fi \
 	&& cd src \
 	&& mkdir -p ./build \
 	&& cd ./build \

@@ -1,5 +1,6 @@
 
-find_package(Protobuf REQUIRED)
+find_package(Protobuf CONFIG REQUIRED)
+set(protobuf_PROTOC_EXE protobuf::protoc)
 
 add_subdirectory(external)
 
