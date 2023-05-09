@@ -5,7 +5,7 @@ ENV CC_FLAGS "-fno-omit-frame-pointer"
 ENV CXX_FLAGS "-fno-omit-frame-pointer"
 ENV LDFLAGS "-fno-omit-frame-pointer"
 
-ARG PROTOBUF_VERSION=v22.4
+ARG PROTOBUF_VERSION=v21.12
 WORKDIR /usr/src/protobuf
 RUN true \
 	&& git clone \
