@@ -8,7 +8,6 @@ RUN true \
 	&& cd ./build \
 	&& cmake \
 		-DCMAKE_BUILD_TYPE="Debug" \
-		-DASAN_BUILD=ON \
 		-DCPACK_GENERATOR="DEB" \
 		../ \
 	&& true
